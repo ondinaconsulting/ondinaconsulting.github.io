@@ -433,7 +433,7 @@ input[type=submit]:hover {
 
 
 	<div id='about' class='container'>
-		<p1><em>I'm Kaytia King,</em><br>a social impact strategist with more than a decade of experience working in both the public and private sectors. I'm excited to help you with your next project.</p1>
+		<p1><em>I'm Kaytia King,</em><br><span id='About Blurb'></span></p1>
 		<br><br>
 		<p1><a id='aboutButton2'>Learn more<span class='appear'><br></span> about me!</a></p1>
 		<div id='headshot'>
@@ -562,7 +562,7 @@ input[type=submit]:hover {
 		
 			<p3>
 				<br>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					<span id='About Page'></span>
 				<br>
 				<br>
 			</p3>
@@ -574,6 +574,10 @@ input[type=submit]:hover {
 </body>
 
 <script type='text/javascript'>
+
+	var length;
+	var data;
+	var entry = 0;
 	
 	var open = 0;
 	var scrollUpOpen = 0;
@@ -654,6 +658,30 @@ input[type=submit]:hover {
 	var date = new Date();
 	var year = date.getFullYear();
 	$('#year').text(year);
+
+	var loaditup = function(){
+		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?output=tsv';
+		$.ajax(url, {
+		success: function(spreadsheet) {
+			data = spreadsheet.split('\r\n');
+			data = data.slice(1);
+			length = data.length;
+			addrows(data);
+		}
+		});
+	};
+
+	var addrows = function(data){
+		data.forEach(function(content, count) {
+			content = content.split('\t');
+			console.log(content);
+			count = count + 1;
+			$('#' + content[0]).text(content[2]);
+		});
+	};
+
+
+	loaditup();
 
 
 </script>
