@@ -670,8 +670,7 @@ input[type=submit]:hover {
 		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?output=tsv';
 		$.ajax(url, {
 		success: function(spreadsheet) {
-			data = spreadsheet.split('\r\n');
-			console.log(data);
+			console.log(spreadsheet);
 		}
 		});
 	};
