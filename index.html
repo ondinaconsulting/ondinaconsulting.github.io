@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+ 
+		<link rel="shortcut icon" href="https://kevinjbeaty.com/favicon-HD-150x150.jpg"/>
+
+		<title>
+		Ondina Consulting
+		</title>
+
+		<meta name="author" content="Kaytia King">
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+</head>
+
+
+<style>
+
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+a {
+	text-decoration: none;
+	color: #28537c;
+	font-weight: 500;
+}
+
+u {
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #63819f;
+	cursor: pointer;
+}
+
+em {
+	font-weight: 500;
+	font-style: normal;
+}
+
+
+h1 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 22px;
+	font-weight: 500;
+	color: black;
+	text-align: center;
+}
+
+h2 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	color: black;
+}
+
+h3 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	color: black;
+	font-style: italic;
+	padding-top: 1.5em;
+}
+
+p1 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	font-weight: 200;
+	color: black;
+}
+
+p2 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px;
+	font-weight: 200;
+	color: black;
+}
+
+p3 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	font-weight: 200;
+	color: black;
+	line-height: 1.5em;
+}
+
+p4 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 12px;
+	font-weight: 200;
+	color: white;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	position: block;
+	display: relative;
+	background-color: white;
+	overflow: hidden;
+}
+
+#screenContainer {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	overflow: scroll;
+}
+
+.screenWidth {
+	max-width: 750px;
+	margin: auto;
+}
+
+#scrollUp {
+	position: absolute;
+	display: none;
+	top: 0;
+	bottom: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 50;
+}
+
+#scrollUpText {
+	background-color: #28537c;
+	padding: .5em;
+}
+
+#scrollUpText:hover {
+	cursor: pointer;
+}
+
+.container {
+	display: block;
+	position: relative;
+	height: auto;
+	width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-bottom: 60px;
+}
+
+
+
+.line {
+	positon: relative;
+	display: block;
+	background-color: #829ab2;
+	height: 1px;
+	width: 100%;
+	margin: auto;
+}
+
+.endLine {
+	positon: relative;
+	display: block;
+	background-color: #829ab2;
+	height: 1px;
+	width: 65%;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+
+#menu {
+	text-align: center;
+}
+
+#header {
+	display: block;
+	position: relative;
+	height: auto;
+	width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-bottom: 5px;
+	background-image: url('https://kevinjbeaty.com/projects/kk/230919-assets-15.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 20vh;
+}
+
+
+
+#logo {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: url('https://kevinjbeaty.com/projects/kk/230919-assets-06.png');
+	background-size: auto 100%;
+	background-position: center;
+}
+
+.icon {
+	height: .7em;
+	display: inline;
+	width: auto;
+}
+
+#about {
+	width: 45%;
+	text-align: right;
+}
+
+#contact {
+	text-align: center;
+}
+
+
+#headshot {
+	position: absolute;
+	display: block;
+	right: -75%;
+	left: 100%;
+	top: 10%;
+	bottom: 10%;
+	background-image: url('https://kevinjbeaty.com/projects/kk/kaytia-king-headshot.jpg');
+	background-size: cover;
+	background-position: center;
+	max-height: 300px;
+}
+
+.split {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+#footer {
+	text-align: center;
+}
+
+.disappear {
+	display: none;
+}
+
+.appear {
+	display: inline;
+}
+
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	resize: vertical;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #f2f2f2;
+}
+
+input[type=submit] {
+	background-color: #28537c;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #63819f;
+}
+
+.contactContainer {
+	width: 100%;
+	border-radius: 5px;
+	text-align: left;
+}
+
+#aboutPanel {
+	position: absolute;
+	display: block;
+	top: 120%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 10%;
+	background-color: white;
+	overflow: scroll;
+	z-index: 100;
+}
+
+#ex {
+	position: absolute;
+	display: block;
+	top: 0;
+	right: auto;
+	bottom: auto;
+	height: 32px;
+	width: 20px;
+	left: 97%;
+	padding-left: .5em;
+	padding-right: .5em;
+	padding-top: .2em;
+	background-color: #28537c;
+}
+
+#ex img {
+	padding-top: 9px;
+	height: 1em;
+	width: 1em;
+	display: inline;
+	margin: auto;
+	display: block;
+}
+
+#ex:hover {
+	cursor: pointer;
+}
+
+
+@media (min-width: 500px) {
+
+	h1 {
+		font-size: 28px;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+
+	h3 {
+		font-size: 24px;
+	}
+
+	p1 {
+		font-size: 20px;
+	}
+
+	p2 {
+		font-size: 14px;
+	}
+	p3 {
+		font-size: 20px;
+	}
+	p4 {
+		font-size: 14px;
+	}
+	.disappear {
+		display: inline;
+	}
+	.appear {
+		display: none;
+	}
+	.split {
+		display: inline-block;
+		width: 46%;
+		margin: 0;
+	}
+
+	#splitLeft {
+		padding-right: 3%;
+	}
+	#splitRight {
+		padding-left: 3%;
+	}
+
+	#headshot {
+		background-position: center 20%;
+		right: auto;
+		width: 200px;
+		bottom: 0;
+		top: .3em;
+	}
+	#about {
+		width: 35%;
+		margin-left: 10%;
+	}
+	#ex {
+		height: 42px;
+		width: 30px;
+	}
+	#ex img {
+		padding-top: 12px;
+	}
+}
+
+</style>
+	
+
+<body>
+
+<div id='scrollUp'>
+	<div class='screenWidth' id='scrollUpText'>
+		<p4><em>scroll to top</em></p4>
+	</div>
+</div>
+
+<div id='screenContainer'>
+
+<div class='screenWidth'>
+
+	<div id='header'>
+		<div id='logo'>
+		</div>
+	</div>
+
+	<div id='menu' class='container'>
+		<p1>
+		<a id='aboutButton'>about</a>&ensp;&ensp;<a id='servicesButton'>services</a>&ensp;&ensp;<a id='contactButton'>contact</a>
+		</p1>
+	</div>
+
+
+	<div id='about' class='container'>
+		<p1><em>I'm Kaytia King,</em><br>a social impact strategist with more than a decade of experience working in both the public and private sectors. I'm excited to help you with your next project.</p1>
+		<br><br>
+		<p1><a id='aboutButton2'>Learn more<span class='appear'><br></span> about me!</a></p1>
+		<div id='headshot'>
+		</div>
+	</div>
+
+	<div class='container'>
+		<div class='line'></div>
+		<h1><img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'> RECENT WORK <img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'></h1>
+		<div class='line'></div>
+		<div class='insetBox'>
+			<p3>
+			<br>
+			<em>DoorDash</em>
+			<br>
+			Learn how I helped them <a>conquer the known world</a>.
+			<br><br>
+			<em>#ISTANDWITHIMMIGRANTS</em>
+			<br>
+			Learn how I organized a national campaign <a>that brought love and joy to everyone</a>.
+			<br><br>
+			<em>Colorado Community Colleges</em>
+			<br>
+			Learn how I helped the state <a>get their shit together</a>.
+			<br><br>
+			<a>See more of my past projects.</a>
+			</p3>
+		</div>
+	</div>
+
+
+	<div class='container' id='servicesTop'>
+			<div class='line'></div>
+		<h1><img src='https://kevinjbeaty.com/projects/kk/230919-assets-13.png' class='icon'> SERVICES <img src='https://kevinjbeaty.com/projects/kk/230919-assets-13.png' class='icon'></h1>
+			<div class='line'></div>
+		<div class='split' id='splitLeft'>
+			<br>
+			<h3>COMMUNITY IMPACT</h3>
+			<br>
+			<p3>
+			<em>Strategic Planning</em>
+			<br>
+			Cultivate the relationship lifecycle from research, outreach, recruitment, to engagement to identify and enact partnership opportunities.
+			<br><br>
+			<em>Campaign & Program Design</em>
+			<br>
+			Designs, contributes to, and implements strategic initiatives for companies, electeds, and community stakeholders. Campaigns have previously included messaging, digital and in-person events, social hashtags, and resource and material development.
+			<br><br>
+			<em>Community Engagement</em>
+			<br>
+			Relationship management planning and programming of community partners and stakeholders on priority issues. Can include coalition building.
+			</p3>
+		</div>
+		<div class='split' id='splitRight'>
+			<br>
+			<h3>ORGANIZATIONAL IMPACT</h3>
+			<br>
+			<p3>
+			<em>Strategic Planning</em>
+			<br>
+			Designing 1-3 year strategic plans for companies to deeply integrate better organizational culture practices into their infrastructure, policies, recruiting, outreach and more.
+			<br><br>
+			<em>Workforce Development Facilitation & Trainings</em>
+			<br>
+			Supports the socialization initiatives and leads discussions in diversity & inclusion, conflict resolution, policy overviews and explainers, intergenerational work dynamics.
+			<br><br>
+			<em>Organizational Cultural Audit</em>
+			<br>
+			Examining organizations internal structures and culture through first person accounts and policy and procedure analysis.
+			<br><br>
+			<em>DEI Coaching</em>
+			<br>
+			Examining organizations internal structures and culture through first person accounts and policy and procedure analysis.
+			</p3>
+		</div>
+	</div>
+
+
+	<div class='container' id='contactTop'>
+		<div class='line'></div>
+		<h1><img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'> CONTACT ME <img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'></h1>
+		<div class='line'></div>
+		<div id='contact'>
+			<p3>
+			<br>
+			Let's get in touch!
+			<br>
+			<a>kaytia@ondinaconsulting.com</a>
+			<br>
+			<a>555.555.5555</a>
+			<br><br>
+			</p3>
+
+			<iframe src='./kk-form.html' width='100%' height='500px'></iframe>		
+
+
+		</div>
+	</div>
+
+	<div class='endLine'></div>
+
+	<div id='footer' class='container'>
+		<p2>
+			<br>
+			Ondina Consulting, LTD
+			<br>
+			© <span id='year'></span>
+		</p2>
+	</div>
+
+</div>
+</div>
+
+
+	<div id='aboutPanel'>
+	<div class='screenWidth'>
+		<div class='container'>
+			<div id='ex'>
+				<p4>
+					<img src='https://kevinjbeaty.com/wp-content/uploads/2022/12/x-icon.png'>
+				</p4>
+			</div>
+			<div class='line'></div>
+			<h1><img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'> ABOUT ME <img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'></h1>
+			<div class='line'></div>
+		
+			<p3>
+				<br>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<br>
+				<br>
+			</p3>
+			<iframe src='./kk-form.html' width='100%' height='500px'></iframe>		
+		</div>
+	</div>
+	</div>
+
+</body>
+
+<script type='text/javascript'>
+	
+	var open = 0;
+	var scrollUpOpen = 0;
+
+	$("#contactButton").click(function() {
+		$('#screenContainer').animate({
+			scrollTop: $("#contactTop").offset().top - 36
+		}, 900);
+	});
+
+	$("#servicesButton").click(function() {
+		$('#screenContainer').animate({
+			scrollTop: $("#servicesTop").offset().top - 36
+		}, 900);
+	});
+
+	$("#aboutButton").click(function() {
+		$('#aboutPanel').animate({
+			top: 0
+		}, 900);
+		history.pushState("", document.title, window.location.pathname + window.location.search + '#about-me');
+		open = 1;
+	});
+
+	$("#aboutButton2").click(function() {
+		$('#aboutPanel').animate({
+			top: 0
+		}, 900);
+		history.pushState("", document.title, window.location.pathname + window.location.search + '#about-me');
+		open = 1;
+	});
+
+	$("#ex").click(function() {
+		$('#aboutPanel').animate({
+			top: '100%'
+		}, 900);
+		history.pushState("", document.title, window.location.pathname + window.location.search);
+		open = 0;
+	});
+
+	$(window).on('popstate', function(event) {
+		if (open == 1) {
+			$('#aboutPanel').animate({
+				top: '100%'
+			}, 900);
+			history.pushState("", document.title, window.location.pathname + window.location.search);			
+			open = 0;
+		}
+		else if (this.navigation.currentEntry.url.slice(-9) == '#about-me') {
+			$('#aboutPanel').animate({
+				top: 0
+			}, 900);
+			open = 1;
+		}
+	});
+
+	$('#screenContainer').on('scroll', function(event) {
+		if ($('#screenContainer').scrollTop() > 155) {
+			if (scrollUpOpen == 0) {
+				$('#scrollUp').css('display','block');
+				scrollUpOpen = 1;
+			}
+		}
+		else {
+			if (scrollUpOpen == 1) {
+				$('#scrollUp').css('display','none');
+				scrollUpOpen = 0;
+			}
+		}
+	});
+
+	$('#scrollUpText').click(function(){
+		$('#screenContainer').animate({
+			scrollTop: 0
+		}, 900);
+	});
+
+	var date = new Date();
+	var year = date.getFullYear();
+	$('#year').text(year);
+
+
+</script>
+
+</html>
