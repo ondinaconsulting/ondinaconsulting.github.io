@@ -674,7 +674,8 @@ input[type=submit]:hover {
 	var addrows = function(data){
 		data.forEach(function(content, count) {
 			content = content.split('\t');
-			console.log(content);
+			console.log(content[0]);
+			console.log(content[2]);
 			count = count + 1;
 			$('#' + content[0]).text(content[2]);
 		});
