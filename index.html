@@ -445,21 +445,7 @@ input[type=submit]:hover {
 		<h1><img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'> RECENT WORK <img src='https://kevinjbeaty.com/projects/kk/230919-assets-12.png' class='icon'></h1>
 		<div class='line'></div>
 		<div class='insetBox'>
-			<p3>
-			<br>
-			<em>DoorDash</em>
-			<br>
-			Learn how I helped them <a>conquer the known world</a>.
-			<br><br>
-			<em>#ISTANDWITHIMMIGRANTS</em>
-			<br>
-			Learn how I organized a national campaign <a>that brought love and joy to everyone</a>.
-			<br><br>
-			<em>Colorado Community Colleges</em>
-			<br>
-			Learn how I helped the state <a>get their shit together</a>.
-			<br><br>
-			<a>See more of my past projects.</a>
+			<p3 id='WorkContent'>
 			</p3>
 		</div>
 	</div>
@@ -473,40 +459,14 @@ input[type=submit]:hover {
 			<br>
 			<h3>COMMUNITY IMPACT</h3>
 			<br>
-			<p3>
-			<em>Strategic Planning</em>
-			<br>
-			Cultivate the relationship lifecycle from research, outreach, recruitment, to engagement to identify and enact partnership opportunities.
-			<br><br>
-			<em>Campaign & Program Design</em>
-			<br>
-			Designs, contributes to, and implements strategic initiatives for companies, electeds, and community stakeholders. Campaigns have previously included messaging, digital and in-person events, social hashtags, and resource and material development.
-			<br><br>
-			<em>Community Engagement</em>
-			<br>
-			Relationship management planning and programming of community partners and stakeholders on priority issues. Can include coalition building.
+			<p3 id='CommContent'>
 			</p3>
 		</div>
 		<div class='split' id='splitRight'>
 			<br>
 			<h3>ORGANIZATIONAL IMPACT</h3>
 			<br>
-			<p3>
-			<em>Strategic Planning</em>
-			<br>
-			Designing 1-3 year strategic plans for companies to deeply integrate better organizational culture practices into their infrastructure, policies, recruiting, outreach and more.
-			<br><br>
-			<em>Workforce Development Facilitation & Trainings</em>
-			<br>
-			Supports the socialization initiatives and leads discussions in diversity & inclusion, conflict resolution, policy overviews and explainers, intergenerational work dynamics.
-			<br><br>
-			<em>Organizational Cultural Audit</em>
-			<br>
-			Examining organizations internal structures and culture through first person accounts and policy and procedure analysis.
-			<br><br>
-			<em>DEI Coaching</em>
-			<br>
-			Examining organizations internal structures and culture through first person accounts and policy and procedure analysis.
+			<p3 id ='OrgContent'>
 			</p3>
 		</div>
 	</div>
@@ -666,25 +626,73 @@ input[type=submit]:hover {
 	var year = date.getFullYear();
 	$('#year').text(year);
 
-	var loaditup = function(){
-		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?output=tsv';
+	var loadMain = function(){
+		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?gid=1389634092&single=true&output=tsv';
 		$.ajax(url, {
 		success: function(spreadsheet) {
-			console.log(spreadsheet);
+			data = spreadsheet.split('\r\n');
+			data = data.slice(1);
+			data.forEach(function(content) {
+				content = content.split('\t');
+				$('#' + content[0]).text(content[2]);
+			});
 		}
 		});
 	};
 
-	var addrows = function(data){
-		data.forEach(function(content, count) {
-			content = content.split('\t');
-			count = count + 1;
-			$('#' + content[0]).text(content[2]);
+	var loadWork = function(){
+		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?gid=1905272634&single=true&output=tsv';
+		$.ajax(url, {
+		success: function(spreadsheet) {
+			data = spreadsheet.split('\r\n');
+			data = data.slice(1);
+			data.forEach(function(content) {
+				content = content.split('\t');
+				$('#WorkContent').append(
+					"<br><em>" + content[0] + "</em><br>" + content[1] +"<br><br>"
+				);
+			});
+		}
+		});
+	};
+
+	var loadComm = function(){
+		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?gid=799879079&single=true&output=tsv';
+		$.ajax(url, {
+		success: function(spreadsheet) {
+			data = spreadsheet.split('\r\n');
+			data = data.slice(1);
+			data.forEach(function(content) {
+				content = content.split('\t');
+				$('#CommContent').append(
+					"<em>" + content[0] + "</em><br>" + content[1] + "<br>"
+				);
+			});
+		}
+		});
+	};
+
+	var loadOrg = function(){
+		url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSIow92M-rPMd67E7ZZ9ZpMySgwTcTK3Km-YtUTukVPKyE-EjUYs9cZ2z7h0LgV_USkTsvPC7ZJmZwP/pub?gid=2095117856&single=true&output=tsv';
+		$.ajax(url, {
+		success: function(spreadsheet) {
+			data = spreadsheet.split('\r\n');
+			data = data.slice(1);
+			data.forEach(function(content) {
+				content = content.split('\t');
+				$('#OrgContent').append(
+					"<em>" + content[0] + "</em><br>" + content[1] + "<br>"
+				);
+			});
+		}
 		});
 	};
 
 
-	loaditup();
+	loadMain();
+	setTimeout(() => {
+		loadWork();
+	}, 100);
 
 
 </script>
