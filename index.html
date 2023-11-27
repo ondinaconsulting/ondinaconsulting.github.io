@@ -521,9 +521,7 @@ input[type=submit]:hover {
 			<br>
 			Let's get in touch!
 			<br>
-			<a>kaytia@ondinaconsulting.com</a>
-			<br>
-			<a>555.555.5555</a>
+			<a href='mailto:kaytia@ondinaconsulting.com'>kaytia@ondinaconsulting.com</a>
 			<br><br>
 			</p3>
 
@@ -566,7 +564,16 @@ input[type=submit]:hover {
 				<br>
 				<br>
 			</p3>
-			<iframe src='https://kevinjbeaty.com/projects/kk-form.html' width='100%' height='500px'></iframe>		
+			<div id='contact'>
+				<p3>
+				<br>
+				Let's get in touch!
+				<br>
+				<a href='mailto:kaytia@ondinaconsulting.com'>kaytia@ondinaconsulting.com</a>
+				<br><br>
+				</p3>
+			</div>
+				<iframe src='https://kevinjbeaty.com/projects/kk-form.html' width='100%' height='500px'></iframe>				
 		</div>
 	</div>
 	</div>
@@ -664,9 +671,7 @@ input[type=submit]:hover {
 		$.ajax(url, {
 		success: function(spreadsheet) {
 			data = spreadsheet.split('\r\n');
-			data = data.slice(1);
-			length = data.length;
-			addrows(data);
+			console.log(data);
 		}
 		});
 	};
@@ -674,8 +679,6 @@ input[type=submit]:hover {
 	var addrows = function(data){
 		data.forEach(function(content, count) {
 			content = content.split('\t');
-			console.log(content[0]);
-			console.log(content[2]);
 			count = count + 1;
 			$('#' + content[0]).text(content[2]);
 		});
