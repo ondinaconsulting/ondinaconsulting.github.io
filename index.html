@@ -883,14 +883,14 @@ input[type=submit]:hover {
 	};
 
 	var autoTest = function(){
-		if (count != max){
+		if (slide != max){
 			navRight();
 		}
 		else {
 			$('#testimonials').animate({
 				scrollLeft: 0
 			}, 900);
-			count = 0;
+			slide = 0;
 		}
 		setTimeout(() => {
 			autoTest();
