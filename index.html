@@ -887,10 +887,8 @@ input[type=submit]:hover {
 			navRight();
 		}
 		else {
-			$('#testimonials').animate({
-				scrollLeft: 0
-			}, 900);
-			slide = 0;
+			slide = 2;
+			navLeft();
 		}
 		setTimeout(() => {
 			autoTest();
