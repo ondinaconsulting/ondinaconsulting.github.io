@@ -434,15 +434,15 @@ input[type=submit]:hover {
 #rightButton {
 	display: block;
 	background-image: url('https://kevinjbeaty.com/wp-content/uploads/2024/01/right-arrow-black.png');
-	right: 0;
-	left: 95%;
+	right: -4%;
+	left: 100%;
 }
 
 #leftButton {
 	display: none;
 	background-image: url('https://kevinjbeaty.com/wp-content/uploads/2024/01/left-arrow-black.png');
-	left: 0;
-	right: 95%;
+	left: -4%;
+	right: 100%;
 }
 
 
@@ -880,6 +880,22 @@ input[type=submit]:hover {
 				scrollLeft: position
 			}, 900);
 		}
+	};
+
+	var autoTest = function(){
+		if (count != max){
+			navRight();
+		}
+		else {
+			$('#testimonials').animate({
+				scrollLeft: 0
+			}, 900);
+			count = 0;
+		}
+		setTimeout(() => {
+			autoTest();
+		}, 1000);
+		
 	};
 
 	$('#rightButton').on( "click", navRight );
